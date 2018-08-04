@@ -121,6 +121,46 @@
           }
         }
       }
+    },
+    "button-group": {
+      "root": "projects/button-group",
+      "sourceRoot": "projects/button-group/src",
+      "projectType": "library",
+      "prefix": "nbbg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/button-group/tsconfig.lib.json",
+            "project": "projects/button-group/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/button-group/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/button-group/src/test.ts",
+            "tsConfig": "projects/button-group/tsconfig.spec.json",
+            "karmaConfig": "projects/button-group/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/button-group/tsconfig.lib.json",
+              "projects/button-group/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "library"
