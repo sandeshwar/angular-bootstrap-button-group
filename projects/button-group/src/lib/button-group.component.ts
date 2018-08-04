@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Button } from './button.model';
 
 @Component({
   selector: 'nbbg-button-group',
@@ -6,10 +8,32 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class ButtonGroupComponent implements OnInit {
+  /**
+   * List of buttons in this group
+   */
+  @Input() buttons: Button[];
+
+  /**
+   * Value of the selected button
+   */
+  selectedButtonValue = '';
 
   constructor() { }
 
   ngOnInit() {
+    // TODO:: Remove this buttons
+    this.buttons = [
+      { label: 'Left', value: 'left' },
+      { label: 'Right', value: 'right'}
+    ];
+  }
+
+  /**
+   * Called when a button is clicked
+   * @param value Value of the selected button
+   */
+  onClick(value: string) {
+    this.selectedButtonValue = value;
   }
 
 }

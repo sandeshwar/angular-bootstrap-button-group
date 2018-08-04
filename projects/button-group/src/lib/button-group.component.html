@@ -1,0 +1,12 @@
+<div *ngIf="buttons; else showError" class="btn-group" role="group">
+    <button *ngFor="let button of buttons" 
+        [class.active]="button.value === selectedButtonValue"
+        (click)="onClick(button.value)"
+        type="button" class="btn btn-default">
+        {{ button.label }}
+    </button>
+</div>
+
+<ng-template #showError>
+    <strong class="text-warning text-bold">** ButtonGroup: Please provide required inputs **</strong>
+</ng-template>
