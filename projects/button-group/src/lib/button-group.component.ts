@@ -2,11 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'nbbg-button-group',
-  template: `
-    <p>
-      button-group works!
-    </p>
-  `,
+  templateUrl: './button-group.component.html',
   styles: []
 })
 export class ButtonGroupComponent implements OnInit {
