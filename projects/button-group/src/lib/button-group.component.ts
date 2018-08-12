@@ -23,6 +23,11 @@ export class ButtonGroupComponent implements OnInit {
    */
   @Input() vertical = false;
 
+  /**
+   * If true makes the buttons stretch at equal sizes to span the entire width of its parent
+   */
+  @Input() justified = false;
+
   constructor() { }
 
   ngOnInit() {
