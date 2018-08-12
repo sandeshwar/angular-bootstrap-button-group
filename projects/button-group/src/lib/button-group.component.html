@@ -1,4 +1,4 @@
-<div *ngIf="buttons; else showError" class="btn-group" role="group">
+<div *ngIf="buttons; else showError" class="{{ vertical ? 'btn-group-vertical' : 'btn-group' }}" role="group">
     <button *ngFor="let button of buttons" 
         [class.active]="button.value === selectedButtonValue"
         (click)="onClick(button.value)"

@@ -18,6 +18,11 @@ export class ButtonGroupComponent implements OnInit {
    */
   selectedButtonValue = '';
 
+  /**
+   * If true then buttons appears vertically stacked
+   */
+  @Input() vertical = false;
+
   constructor() { }
 
   ngOnInit() {
