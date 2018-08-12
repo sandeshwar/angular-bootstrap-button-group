@@ -28,6 +28,11 @@ export class ButtonGroupComponent implements OnInit {
    */
   @Input() justified = false;
 
+  /**
+   * Disables buttons
+   */
+  @Input() disabled = false;
+
   constructor() { }
 
   ngOnInit() {
