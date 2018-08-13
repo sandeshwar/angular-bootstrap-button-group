@@ -1,13 +1,20 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { Button } from './button.model';
 
+/**
+ * An Angular 6 Bootstrap 3 Button Group Component
+ * @example
+ * <nbbg-button-group [buttons]="buttons" [vertical]="vertical" [justified]="justified" [disabled]="disabled" [(ngModel)]="selectedButton"></nbbg-button-group>
+ */
 @Component({
   selector: 'nbbg-button-group',
   templateUrl: './button-group.component.html',
-  styles: []
+  styles: [],
+  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: ButtonGroupComponent, multi: true}]
 })
-export class ButtonGroupComponent implements OnInit {
+export class ButtonGroupComponent implements ControlValueAccessor {
   /**
    * List of buttons in this group
    */
@@ -33,15 +40,12 @@ export class ButtonGroupComponent implements OnInit {
    */
   @Input() disabled = false;
 
-  constructor() { }
+  /**
+   * Function to call back when button is clicked
+   */
+  _onChange: (value: string) => void;
 
-  ngOnInit() {
-    // TODO:: Remove this buttons
-    this.buttons = [
-      { label: 'Left', value: 'left' },
-      { label: 'Right', value: 'right'}
-    ];
-  }
+  constructor() { }
 
   /**
    * Called when a button is clicked
@@ -49,6 +53,20 @@ export class ButtonGroupComponent implements OnInit {
    */
   onClick(value: string) {
     this.selectedButtonValue = value;
+
+    if(this._onChange) {
+      this._onChange(this.selectedButtonValue);
+    }    
   }
+
+  writeValue(value: string) {
+    this.selectedButtonValue = value;
+  }
+
+  registerOnChange(fn: (value: string) => void): void {
+    this._onChange = fn;
+  }
+
+  registerOnTouched() { }
 
 }

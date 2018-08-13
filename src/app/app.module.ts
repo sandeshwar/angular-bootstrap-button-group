@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ButtonGroupModule } from 'projects/button-group/src/public_api';
+import { ButtonGroupModule } from 'button-group';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import { ButtonGroupModule } from 'projects/button-group/src/public_api';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     ButtonGroupModule
   ],
   providers: [],
