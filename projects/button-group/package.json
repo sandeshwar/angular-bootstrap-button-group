@@ -1,6 +1,13 @@
 {
-  "name": "button-group",
-  "version": "0.0.1",
+  "name": "@sandeshwar/button-group",
+  "version": "1.0.2",
+  "keywords": [
+    "angular",
+    "bootstrap",
+    "button group",
+    "angular library",
+    "angular 6"
+  ],
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
