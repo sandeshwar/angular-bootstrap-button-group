@@ -8,8 +8,10 @@
     "angular library",
     "angular 6"
   ],
+  "repository": "https://github.com/sandeshwar/angular-bootstrap-button-group",
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
-  }
+  },
+  "license": "MIT"
 }
