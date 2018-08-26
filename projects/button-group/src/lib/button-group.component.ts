@@ -1,5 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
+// Required for asObservable()
+import { Observable } from 'rxjs';
 
 import { Button } from './button.model';
 
@@ -39,6 +42,13 @@ export class ButtonGroupComponent implements ControlValueAccessor {
    * Disables buttons
    */
   @Input() disabled = false;
+  
+  private _selectedButtonChange = new EventEmitter<string>();
+
+  /**
+   * Emits an event when any button is clicked
+   */
+  @Output() selectedButtonChange = this._selectedButtonChange.asObservable();
 
   /**
    * Function to call back when button is clicked
@@ -56,7 +66,10 @@ export class ButtonGroupComponent implements ControlValueAccessor {
 
     if(this._onChange) {
       this._onChange(this.selectedButtonValue);
-    }    
+    }
+
+    // Emit an event
+    this._selectedButtonChange.emit(this.selectedButtonValue);
   }
 
   writeValue(value: string) {
