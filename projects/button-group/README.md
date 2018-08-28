@@ -52,13 +52,24 @@ export class MyComponent implements OnInit {
       { label: 'New', value: 'new' },
       { label: 'Delete', value: 'delete' }
     ];
+
+    // You can subscribe to value changes using ViewChild
+    this.buttonGroup.selectedButtonChange.subscribe(
+      buttonValue => console.log(buttonValue)
+    );
+  }
+
+  // You can also listen to changes using Output binding in template
+  change(e) {
+    console.log(e);
   }
 }
 ```
 
 Include the following in your template
 ```html
-<nbbg-button-group [buttons]="buttons" [vertical]="vertical" [justified]="justified" [disabled]="disabled" [(ngModel)]="selectedButton"></nbbg-button-group>
+<nbbg-button-group [buttons]="buttons" [vertical]="vertical" [justified]="justified" [disabled]="disabled" [(ngModel)]="selectedButton"
+                   (selectedButtonChange)="change($event)"></nbbg-button-group>
 
 {{ selectedButton }}
 ```
