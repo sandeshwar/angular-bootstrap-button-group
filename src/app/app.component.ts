@@ -25,13 +25,13 @@ export class AppComponent implements OnInit {
       { label: 'Right', value: 'right'}
     ];
 
-    // Subscribe to value changes using ViewChild
+    // You can subscribe to value changes using ViewChild
     this.buttonGroup.selectedButtonChange.subscribe(
       buttonValue => console.log(buttonValue)
     );
   }
 
-  // Listen to changes using Output binding in template
+  // You can also listen to changes using Output binding in template
   change(e) {
     console.log(e);
   }
