@@ -41,6 +41,10 @@ export class MyComponent implements OnInit {
   // if true, button group will take up the entire width of it's parent element
   // works only in Bootstrap 3
   justified = false;
+
+  // size of the button (sm, md, lg)
+  // default is md
+  size = 'sm';
   
   // disables all the buttons
   disabled = false;
@@ -68,13 +72,14 @@ export class MyComponent implements OnInit {
 
 Include the following in your template
 ```html
-<nbbg-button-group [buttons]="buttons" [vertical]="vertical" [justified]="justified" [disabled]="disabled" [(ngModel)]="selectedButton"
+<nbbg-button-group [buttons]="buttons" [vertical]="vertical" [justified]="justified" [size]="size" 
+                   [disabled]="disabled" [(ngModel)]="selectedButton"
                    (selectedButtonChange)="change($event)"></nbbg-button-group>
 
 {{ selectedButton }}
 ```
 
 ## More details
-vertical, justified and disabled are optional boolean properties.
+vertical, justified, size and disabled are optional properties.
 
 Please import `FormsModule` if you haven't already as it is required for the `ngModel` property
