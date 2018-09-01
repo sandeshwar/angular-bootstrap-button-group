@@ -39,6 +39,11 @@ export class ButtonGroupComponent implements ControlValueAccessor {
   @Input() justified = false;
 
   /**
+   * Size of the buttons
+   */
+  @Input() size = 'md';
+
+  /**
    * Disables buttons
    */
   @Input() disabled = false;

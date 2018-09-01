@@ -5,7 +5,7 @@
             [class.active]="button.value === selectedButtonValue"
             [disabled]="disabled"
             (click)="onClick(button.value)"
-            type="button" class="btn btn-default">
+            type="button" class="btn btn-default" [ngClass]="{ 'btn-sm' : size === 'sm', 'btn-lg' : size === 'lg' }">
             {{ button.label }}
         </button>
     </div>

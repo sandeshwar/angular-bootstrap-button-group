@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   vertical = true;
   justified = false;
   disabled = false;
+  size = 'lg';
 
   buttons: Button[];
   selectedButton = '';
